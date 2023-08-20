@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Records Management Office</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>Records Management Office</h1>
+		<a href="index.html">Home</a>
+	</header>
+	<main>
+		<table>
+			<thead>
+				<tr>
+					<th>Serial Code</th>
+					<th>Full Name</th>
+					<th>Address</th>
+					<th>Gender</th>
+					<th>Age</th>
+					<th>Phone Number</th>
+					<th>Birthdate</th>
+					<th>Created At</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+					// Connect to database
+					$servername = "localhost";
+					$username = "renzo";
+					$password = "ozner";
+					$dbname = "RMO";
+
+					$conn = new mysqli($servername, $username, $password, $dbname);
+					if ($conn->connect_error) {
+						die("Connection failed: " . $conn->connect_error);
+					}
+
+					// Select data from table
+					$sql = "SELECT * FROM humans";
+					$result = $conn->query($sql);
+
+					if ($result->num_rows > 0) {
+						// Output data of each row
+						while($row = $result->fetch_assoc()) {
+							echo "<tr>";
+							echo "<td>" . $row["serial_code"] . "</td>";
+							echo "<td>" . $row["full_name"] . "</td>";
+							echo "<td>" . $row["address"] . "</td>";
+							echo "<td>" . $row["gender"] . "</td>";
+							echo "<td>" . $row["age"] . "</td>";
+							echo "<td>" . $row["phone_number"] . "</td>";
+							echo "<td>" . $row["birthdate"] . "</td>";
+							echo "<td>" . $row["created_at"] . "</td>";
+							echo "</tr>";
+						}
+					} else {
+						echo "0 results";
+					}
+
+					$conn->close();
+				?>
+			</tbody>
+		</table>
+	</main>
+</body>
+</html>
+

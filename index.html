@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Records Management Office</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>Add New Record</h1>
+		<a href="humans_table.html">View Records</a>
+	</header>
+
+	<main>
+		<form id="human-form" action="add_human.php" method="post">
+			<label for="last_name">last_name</label>
+			<input type="text" name="last_name" id="last_name" required><br><br>
+
+			<label for="first_name">first_name</label>
+			<input type="text" name="first_name" id="first_name" required><br><br>
+
+			<label for="middle_initial">middle_initial</label>
+			<input type="text" name="middle_initial" id="middle_initial" required><br><br>
+
+			<label for="age">Age:</label>
+			<input type="number" name="age" id="age" required><br><br>
+
+			<label for="gender">Gender:</label>
+			<select id="gender" name="gender" required>
+				<option value="">--Select--</option>
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+			</select><br><br>
+
+			<label for="address">Address:</label>
+			<input type="text" id="address" name="address" required><br><br>
+
+			<label for="birthdate">Birthdate:</label>
+			<input type="date" name="birthdate" id="birthdate" required><br><br>
+
+			<label for="social_status">social_status:</label>
+			<select id="social_status" name="social_status" required>
+				<option value="">--Select--</option>
+				<option value="Single">Single</option>
+				<option value="Married">Married</option>
+			</select><br><br>
+
+			<label for="phone_number">Phone Number:</label>
+			<input type="text" id="phone_number" name="phone_number" required><br><br>
+
+			<label for="facebook_account">facebook_account</label>
+			<input type="text" name="facebook_account" id="facebook_account" required><br><br>
+
+			<input type="submit" value="Add Human">
+		</form>
+	</main>
+
+	<script>
+		document.getElementById("human-form").addEventListener("submit", function(event) {
+			if (!event.target.checkValidity()) {
+				event.preventDefault();
+			}
+			else {
+				window.location.href = "humans_table.html";
+			}
+		});
+	</script>
+</body>
+</html>
+

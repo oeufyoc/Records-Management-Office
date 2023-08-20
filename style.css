@@ -1,0 +1,72 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: linear-gradient(to bottom right, #50C9C3, #96DEDA);
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	background-color: #FFF;
+	box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
+}
+
+header h1 {
+	margin: 0;
+	color: #444;
+	font-size: 2em;
+}
+
+header a {
+	background-color: #50C9C3;
+	color: #FFF;
+	padding: 10px 15px;
+	border-radius: 5px;
+	text-decoration: none;
+	font-size: 1.2em;
+	transition: background-color 0.3s ease;
+}
+
+header a:hover {
+	background-color: #2EA39A;
+}
+
+main {
+	padding: 50px;
+}
+
+form {
+	background-color: #FFF;
+	box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
+	padding: 30px;
+	border-radius: 5px;
+}
+
+label {
+	display: block;
+	font-size: 1.2em;
+	margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	font-size: 1.2em;
+	border: none;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	box-sizing: border-box;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+}
+
+input[type="submit"] {
+	background-color: #50C9C3;
+	color: #FFF;
+	padding: 10px 15px;
