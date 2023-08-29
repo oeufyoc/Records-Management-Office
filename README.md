@@ -27,7 +27,7 @@ Generation of MEMBERS DATA, para sa tanan na personal data
 		  UNIQUE (last_name, first_name, middle_initial)
 		);
 
-Amo ini an auto increment ko na serial number sa kada entry san human, an format kay "<year><month><day><serial-num>" an problema ko pa dd kay kun pano idisplay an month na two digits, halimbawa sa april 2023, imbis na 20234, dapat 202304.
+Amo ini an auto increment ko na serial number sa kada entry san human, an format kay YEAR-MONTH-DAY-SERIAL an problema ko pa dd kay kun pano idisplay an month na two digits, halimbawa sa april 2023, imbis na 20234, dapat 202304.
   
 		DELIMITER $$
 		CREATE TRIGGER generate_serial_code
