@@ -53,7 +53,7 @@ Generation of LEADERS TABLE, purpose ko sa leaders table kay para sa tracking sa
 		  FOREIGN KEY (serial_code) REFERENCES humans(serial_code)
 		);
 
-Trigger ini para automatic na iadd an usad na MEMBER sa LEADERS table, magiging true sa active_member na column, kaya ko ini gin butang san tracking san active kag inactive na member sa LEADERS table kay para rin sa history san mga connected na leader san MEMBER
+Trigger ini para automatic na iadd an usad na MEMBER sa LEADERS table magiging true sa active_member na column, kaya ko ini gin butang san tracking san active kag inactive na member sa LEADERS table kay para rin sa history san mga connected na leader san MEMBER
   
 		CREATE TRIGGER set_active_member_true
 		BEFORE INSERT ON leaders
