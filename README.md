@@ -4,6 +4,12 @@ php v8.2.4
 
 mariaDB setup v10.3.39
 
+---
+
+![screenshot-20230412-020957](https://github.com/oeufyoc/Records-Management-Office/assets/51881147/27995309-caa4-4031-b369-af31d2601bd6)
+
+Generation of MEMBERS DATA, para sa tanan na personal data
+
 		CREATE TABLE humans (
 		  serial_code VARCHAR(12) NOT NULL,
 		  last_name VARCHAR(255) NOT NULL,
@@ -20,7 +26,9 @@ mariaDB setup v10.3.39
 		  PRIMARY KEY (serial_code),
 		  UNIQUE (last_name, first_name, middle_initial)
 		);
-		
+
+Amo ini an auto increment ko na serial number sa kada entry san human, an format kay "<year><month><day><serial-num>" an problema ko pa dd kay kun pano idisplay an month na two digits, halimbawa sa april 2023, imbis na 20234, dapat 202304.
+  
 		DELIMITER $$
 		CREATE TRIGGER generate_serial_code
 		BEFORE INSERT ON humans
@@ -34,7 +42,9 @@ mariaDB setup v10.3.39
 		    SET NEW.created_at = DATE_FORMAT(NOW(), '%Y%m%d');
 		END$$
 		DELIMITER ;
-		
+
+Generation of LEADERS TABLE, purpose ko sa leaders table kay para sa tracking san members sa kada leader.
+  
 		CREATE TABLE leaders (
 		  id INT AUTO_INCREMENT PRIMARY KEY,
 		  serial_code VARCHAR(10) NOT NULL,
@@ -42,12 +52,14 @@ mariaDB setup v10.3.39
 		  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 		  FOREIGN KEY (serial_code) REFERENCES humans(serial_code)
 		);
-		
+
+Trigger ini para automatic na iadd an usad na MEMBER sa LEADERS table, magiging true sa active_member na column, kaya ko ini gin butang san tracking san active kag inactive na member sa LEADERS table kay para rin sa history san mga connected na leader san MEMBER
+  
 		CREATE TRIGGER set_active_member_true
 		BEFORE INSERT ON leaders
 		FOR EACH ROW
 		SET NEW.active_member = TRUE;
-		
+
 		
 		DELIMITER //
 		CREATE TRIGGER set_active_member_false
